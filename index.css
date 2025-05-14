@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    
+    --primary: 222 47% 23%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 222 47% 35%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --accent: 210 79% 50%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --ring: 215 20.2% 65.1%;
+    
+    --radius: 0.5rem;
+
+    /* New custom variables for sidebar */
+    --sidebar-background: 222 47% 23%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 222 47% 23%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 79% 50%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 47% 30%;
+    --sidebar-ring: 210 79% 50%;
+  }
+  
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+    
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+    
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    
+    --primary: 222 47% 23%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 222 47% 35%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --accent: 210 79% 50%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --ring: 216 34% 17%;
+    
+    --radius: 0.5rem;
+
+    /* Dark mode sidebar variables */
+    --sidebar-background: 222 47% 16%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 222 47% 23%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 79% 50%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 47% 25%;
+    --sidebar-ring: 210 79% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    font-family: 'Caveat', system-ui, sans-serif;
+    @apply bg-background text-foreground;
+    font-size: 1.1rem;
+  }
+
+  /* Custom styles for the resizable sidebar */
+  .sidebar-resizer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: transparent;
+    cursor: col-resize;
+    z-index: 10;
+  }
+
+  .sidebar-resizer:hover, 
+  .sidebar-resizer.resizing {
+    background: rgba(49, 130, 206, 0.2);
+  }
+
+  .sidebar-toggle-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar-collapsed .sidebar-toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  .ProseMirror {
+    outline: none;
+    min-height: 200px;
+    padding: 1rem;
+  }
+
+  .ProseMirror p {
+    margin-bottom: 1rem;
+  }
+
+  .ProseMirror h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .ProseMirror h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .ProseMirror h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .ProseMirror ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .ProseMirror ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .ProseMirror a {
+    color: hsl(var(--accent));
+    text-decoration: underline;
+  }
+
+  .toolbar-divider {
+    @apply text-gray-300 mx-1;
+  }
+
+  .toolbar-button.is-active {
+    @apply bg-blue-50 text-accent;
+  }
+  
+  /* Custom scrollbar styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+}
